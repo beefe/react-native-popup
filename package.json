@@ -1,0 +1,29 @@
+{
+  "name": "react-native-popup",
+  "version": "0.1.0",
+  "description": "popup for react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beefe/react-native-popup.git"
+  },
+  "keywords": [
+    "react-native",
+    "popup"
+  ],
+  "author": {
+    "name": "rsk",
+    "email": "rsk_rsk@163.com"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beefe/react-native-popup/issues"
+  },
+  "homepage": "https://github.com/beefe/react-native-popup#readme"
+}
