@@ -282,4 +282,4 @@ var styles = StyleSheet.create({
 });
 
 
-module.exports = LoanOrder;
+module.exports = Popup;
