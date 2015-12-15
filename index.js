@@ -214,20 +214,6 @@ var styles = StyleSheet.create({
 		backgroundColor: '#000', 
 		opacity: .5, 
 	},
-	_tipBox: { 
-		flex: 1, 
-		position: 'absolute', 
-		paddingTop: 15, 
-		top: Dimensions.get('window').height / 3, 
-		left: 25, 
-		flexDirection: 'column', 
-		backgroundColor: '#fff', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
-		width: Dimensions.get('window').width - 50, 
-		height: Dimensions.get('window').height * .3, 
-		borderRadius: 12, 
-	},
 	tipBox: { 
 		flex: 1, 
 		paddingTop: 15, 
@@ -293,7 +279,7 @@ var styles = StyleSheet.create({
 		fontSize: 16, 
 		color: '#149be0', 
 	},
-};
+});
 
 
 module.exports = LoanOrder;
