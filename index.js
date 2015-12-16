@@ -9,6 +9,8 @@ var {
 	TouchableOpacity, 
 	Dimensions,
 	TouchableWithoutFeedback,
+	PixelRatio,
+	Platform,
 } = React;
 
 var PopContent = React.createClass({
@@ -24,7 +26,7 @@ var PopContent = React.createClass({
 		var btnNumber = btns.length;
 		return (
 			<View style={styles.tipBox}>
-				{ title && <Text style={styles.tipTitle}>{title}</Text>}
+				{ title && <View style={styles.tipTitleBox}><Text style={styles.tipTitle}>{title}</Text></View>}
 				<View style={styles.tipContentBox}>
 					{() => {
 						var tipContent = [];
@@ -203,6 +205,7 @@ var styles = StyleSheet.create({
 		alignItems: 'center',
 		width: Dimensions.get('window').width, 
 		height: Dimensions.get('window').height, 
+		overflow: 'hidden',
 	},
 	overlay: { 
 		flex: 1, 
@@ -214,6 +217,14 @@ var styles = StyleSheet.create({
 		backgroundColor: '#000', 
 		opacity: .5, 
 	},
+	tipBoxView: { 
+		backgroundColor: '#fff', 
+		justifyContent: 'center', 
+		alignItems: 'center', 
+		width: Dimensions.get('window').width - 50, 
+		borderRadius: 12, 
+		overflow: 'hidden',
+	},
 	tipBox: { 
 		flex: 1, 
 		paddingTop: 15, 
@@ -221,17 +232,13 @@ var styles = StyleSheet.create({
 		justifyContent: 'center', 
 		alignItems: 'center', 
 	},
-	tipBoxView: { 
-		backgroundColor: '#fff', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
-		width: Dimensions.get('window').width - 50, 
-		height: 0,
-		borderRadius: 12, 
-	},
-	tipTitle: { 
+	tipTitleBox: {
 		height: 30, 
 		width: Dimensions.get('window').width - 50, 
+		justifyContent: 'center', 
+		alignItems: 'center', 
+	},
+	tipTitle: { 
 		fontSize: 19, 
 		fontWeight: '500', 
 		textAlign: 'center', 
@@ -250,36 +257,49 @@ var styles = StyleSheet.create({
 		textAlign: 'center', 
 	},
 	line: { 
-		height: 1, 
+		height: 1 / PixelRatio.get(), 
 		width: Dimensions.get('window').width - 50, 
 		backgroundColor: '#ddd', 
 	},
 	btnBox: {
 		width: Dimensions.get('window').width - 50,
-		height: 0,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
+		height: 50,
 	},
 	btnTextBox: {
 		flex: 1,
-		marginTop: 10,
-		height: 40,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	btnLine: {
 		height: 50,
-		width: 1,
+		width: 1 / PixelRatio.get(),
 		backgroundColor: '#ddd',
 	},
 	btnText: { 
-		height: 40, 
 		textAlign: 'center', 
 		fontSize: 16, 
 		color: '#149be0', 
 	},
 });
 
+if(Platform.OS === 'ios'){
+	styles = {
+		...styles,
+		tipTitle: { 
+			fontSize: 20, 
+			fontWeight: '500', 
+			textAlign: 'center', 
+		},
+		tipContent: { 
+			fontSize: 16, 
+			marginTop: 3,
+			marginBottom: 7, 
+			textAlign: 'center', 
+		},
+	}
+}
 
 module.exports = Popup;
