@@ -7,7 +7,7 @@ This is a custom component for React Native, a simple popup, compatible with ios
 - <b>isOverlayClickClose</b> *`(bool)`* - default `true`
 
 ###~~*`static`*~~ Methods
-- <b>alert</b>(<b>`message`</b>: *string*|*number*, [...])
+- <b>alert</b>(`<b>message</b>`: *string*|*number*, [...])
 - <b>tip</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> <b>*`isRequired`*</b>, <b>`ok`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, })
 - <b>confirm</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> <b>*`isRequired`*</b>, <b>`ok`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, <b>`cancel`</b>: {<b>`title`</b>: *string* <b>*`default 'Cancel'`*</b>, <b>`callback`</b>: *function*}, })
 
