@@ -76,7 +76,7 @@ var Popup = React.createClass({
 	getDefaultProps() {
 		return {
 			isOverlay: true,
-			isOverlayClickCancel: true,
+			isOverlayClickClose: true,
 		};
 	},
 
@@ -84,7 +84,7 @@ var Popup = React.createClass({
 		return {
 			isVisible: false,
 			isOverlay: this.props.isOverlay,
-			isOverlayClickCancel: this.props.isOverlayClickCancel,
+			isOverlayClickClose: this.props.isOverlayClickClose,
 			content: null,
 		};
 	},
@@ -162,7 +162,7 @@ var Popup = React.createClass({
 		if(this.state.isOverlay) {
 			return (
 				<TouchableWithoutFeedback onPress={() => {
-					if(this.state.isOverlayClickCancel) {
+					if(this.state.isOverlayClickClose) {
 						this.close();
 					}
 				}}>
@@ -270,6 +270,7 @@ var styles = StyleSheet.create({
 	},
 	btnTextBox: {
 		flex: 1,
+		height: 50,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
