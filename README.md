@@ -3,37 +3,37 @@
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
 ###Props
--	<b>isOverlay</b>   *bool* 
-		default `true`
--	<b>isOverlayClickClose</b>   *bool*
-		default `true`
+- <b>isOverlay</b>   *bool* 
+	default `true`
+- <b>isOverlayClickClose</b>   *bool*
+	default `true`
 
 ###~~static~~ Methods
--	<b>alert</b>(message1: *string*|*number*, [message2: *string*|*number*, ...])
--	<b>tip</b>(args: *object*)
-		<b>args</b>
-			{
-				title: *string* ,   <b>default `Tip`</b>
-				message: *string*|*number*|*array*<*string*|*number*> ,   <b>isRequired</b>
-				btn: {
-					text: *string*,   <b>default `OK`</b>
-					callback: *function*,
-				},
-			}
--	<b>confirm</b>(args: *object*)
-		<b>args</b>
-			{
-				title: *string* ,   <b>default `Tip`</b>
-				message: *string*|*number*|*array*<*string*|*number*> ,   <b>isRequired</b>
-				ok: {
-					text: *string*,   <b>default `OK`</b>
-					callback: *function*,
-				},
-				cancel: {
-					text: *string*,   <b>default `Cancel`</b>
-					callback: *function*,
-				},
-			}
+- <b>alert</b>(message1: *string*|*number*, [message2: *string*|*number*, ...])
+- <b>tip</b>(args: *object*)
+>	<b>args</b>
+>		{
+>			title: *string* ,   <b>default `Tip`</b>
+>			message: *string*|*number*|*array*<*string*|*number*> ,   <b>isRequired</b>
+>			btn: {
+>				text: *string*,   <b>default `OK`</b>
+>				callback: *function*,
+>			},
+>		}
+- <b>confirm</b>(args: *object*)
+	<b>args</b>
+		{
+			title: *string* ,   <b>default `Tip`</b>
+			message: *string*|*number*|*array*<*string*|*number*> ,   <b>isRequired</b>
+			ok: {
+				text: *string*,   <b>default `OK`</b>
+				callback: *function*,
+			},
+			cancel: {
+				text: *string*,   <b>default `Cancel`</b>
+				callback: *function*,
+			},
+		}
 
 ###Usage
 ####Step 1 - install
