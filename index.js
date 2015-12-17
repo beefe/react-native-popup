@@ -118,7 +118,7 @@ var Popup = React.createClass({
 				text: btn && btn.text || 'OK',
 				callback: () => {
 					this.close();
-					typeof btn.callback === 'function' && btn.callback();
+					btn && typeof btn.callback === 'function' && btn.callback();
 				},
 			}],
 		});
@@ -134,14 +134,14 @@ var Popup = React.createClass({
 					text: cancel && cancel.text || 'Cancel',
 					callback: () => {
 						this.close();
-						typeof cancel.callback === 'function' && cancel.callback();
+						cancel && typeof cancel.callback === 'function' && cancel.callback();
 					},
 				},
 				{
 					text: ok && ok.text || 'OK',
 					callback: () => {
 						this.close();
-						typeof ok.callback === 'function' && ok.callback();
+						ok && typeof ok.callback === 'function' && ok.callback();
 					},
 				},
 			],
