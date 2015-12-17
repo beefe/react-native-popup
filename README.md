@@ -8,6 +8,7 @@ This is a custom component for React Native, a simple popup, compatible with ios
 
 ###~~*`static`*~~ Methods
 - <b>alert</b>(message1: *string*|*number*, [message2: *string*|*number*, ...])
+- <b>tip</b>( <b>title</b>: *string*|*number*|*array*<*string*|*number*>, <b>message</b>: *string*|*number*|*array*<*string*|*number*> <b>*`isRequired`*</b>, <b>btn</b>: {<b>title</b>: *string* <b>*`default 'OK'`*</b>, <b>callback</b>: *function*,} )
 - <b>tip</b>(args: *object*)	
 	<b>args</b>		
 		{		
