@@ -15,7 +15,7 @@ This is a custom component for React Native, a simple popup, compatible with ios
 
 		this.popup.alert(1, 'two', '10 messages at most');
 ```
-- <b>tip</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`ok`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, }) 
+- <b>tip</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`btn`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, }) 
 ```javascript
 	e.g.
 
@@ -30,7 +30,7 @@ This is a custom component for React Native, a simple popup, compatible with ios
 
 		this.popup.tip({
 			content: ['come on!', 'go!'],
-			ok: {
+			btn: {
 				text: 'OKOK',
 				callback: () => {
 					this.popup.alert('over!');
