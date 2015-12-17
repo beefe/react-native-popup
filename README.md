@@ -7,9 +7,71 @@ This is a custom component for React Native, a simple popup, compatible with ios
 - <b>isOverlayClickClose</b> *bool* - *`default true`*
 
 ###~~*`static`*~~ Methods
-- <b>alert</b>(<b>`message`</b>: *string*|*number*, [...])
-- <b>tip</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`ok`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, })
-- <b>confirm</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`ok`</b>: {<b>`title`</b>: *string* *`default 'OK'`*, <b>`callback`</b>: *function*}, <b>`cancel`</b>: {<b>`title`</b>: *string* *`default 'Cancel'`*, <b>`callback`</b>: *function*}, })
+- <b>alert</b>(<b>`message`</b>: *string*|*number*, [...]) 
+```javascript
+	e.g.
+
+		this.popup.alert(1);
+
+		this.popup.alert(1, 'two', '10 messages at most');
+```
+- <b>tip</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`ok`</b>: {<b>`title`</b>: *string* <b>*`default 'OK'`*</b>, <b>`callback`</b>: *function*}, }) 
+```javascript
+	e.g.
+
+		this.popup.tip({
+			content: 'come on!',
+		});
+
+		this.popup.tip({
+			title: 'TipTip',
+			content: 'come on!',
+		});
+
+		this.popup.tip({
+			content: ['come on!', 'go!'],
+			ok: {
+				text: 'OKOK',
+				callback: () => {
+					this.popup.alert('over!');
+				},
+			},
+		});
+```
+- <b>confirm</b>({ <b>`title`</b>: *string*, <b>`content`</b>: *string*|*number*|*array*<*string*|*number*> *`isRequired`*, <b>`ok`</b>: {<b>`title`</b>: *string* *`default 'OK'`*, <b>`callback`</b>: *function*}, <b>`cancel`</b>: {<b>`title`</b>: *string* *`default 'Cancel'`*, <b>`callback`</b>: *function*}, }) 
+```javascript
+	e.g.
+
+		this.popup.confirm({
+			content: 'Are you ready?',
+		});
+
+		this.popup.confirm({
+			content: 'Are you ready?',
+			ok: {
+				callback: () => {
+					this.popup.alert('Very good!');
+				},
+			},
+		});
+
+		this.popup.confirm({
+			title: 'title',
+			content: ['come on!', 'go!'],
+			ok: {
+				text: 'Y',
+				callback: () => {
+					this.popup.alert('Good!');
+				},
+			},
+			cancel: {
+				text: 'N',
+				callback: () => {
+					this.popup.alert('Hurry up！');
+				},
+			},
+		});
+```
 
 ###Usage
 ####Step 1 - install
