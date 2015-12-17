@@ -3,7 +3,7 @@
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
 ###Props
-- <b>isOverlay</b> bool - *`default true`*
+- <b>isOverlay</b> *bool* - *`default true`*
 - <b>isOverlayClickClose</b> *bool* - *`default true`*
 
 ###~~*`static`*~~ Methods
