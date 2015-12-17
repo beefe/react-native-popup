@@ -6,7 +6,7 @@ This is a custom component for React Native, a simple popup, compatible with ios
 - <b>isOverlay</b> *`(bool)`* - default `true`
 - <b>isOverlayClickClose</b> *`(bool)`* - default `true`
 
-###~~*static*~~ Methods
+###~~*`static`*~~ Methods
 - <b>alert</b>(message1: *string*|*number*, [message2: *string*|*number*, ...])
 - <b>tip</b>(args: *object*)	
 	<b>args</b>		
