@@ -3,7 +3,7 @@
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
 ###Demo
-![ui](./a.gif)
+![ui](./ui.gif)
 
 ###Props
 - <b>isOverlay</b> *bool* - *`default true`*
