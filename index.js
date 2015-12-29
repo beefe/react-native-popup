@@ -1,7 +1,6 @@
 'use strict';
  
-var React = require('react-native');
-var { 
+import React, { 
 	StyleSheet, 
 	PropTypes, 
 	View, 
@@ -11,25 +10,25 @@ var {
 	TouchableWithoutFeedback,
 	PixelRatio,
 	Platform,
-} = React;
+} from 'react-native';
 
-var PopContent = React.createClass({
+class PopContent extends React.Component{
 
-	propTypes: {
+	static propTypes = {
 		title: PropTypes.string,
 		content: PropTypes.oneOfType([ PropTypes.string, PropTypes.number, PropTypes.array, ]),
 		btns: PropTypes.array,
-	},
+	};
 
 	render() {
-		var {title, content, btns} = this.props;
-		var btnNumber = btns.length;
+		let {title, content, btns} = this.props;
+		let btnNumber = btns.length;
 		return (
 			<View style={styles.tipBox}>
 				{ title && <View style={styles.tipTitleBox}><Text style={styles.tipTitle}>{title}</Text></View>}
 				<View style={styles.tipContentBox}>
-					{() => {
-						var tipContent = [];
+					{(() => {
+						let tipContent = [];
 						if(content instanceof Array){
 							content.forEach((item, index, arr) => {
 								if(index > 9){ 
@@ -41,12 +40,12 @@ var PopContent = React.createClass({
 							content && ( tipContent[0] = (<Text style={styles.tipContent}>{content}</Text>) );
 						}
 						return tipContent;
-					}()}
+					})()}
 				</View>
 				<View style={styles.line}></View>
 				<View style={[styles.btnBox, btnNumber > 2 ? {flexDirection: 'column',} : {}]}>
-					{() => {
-						var btnContent = [];
+					{(() => {
+						let btnContent = [];
 						btns.forEach((btn, index,) => {
 							btnContent.push(
 								<TouchableOpacity style={styles.btnTextBox} onPress={btn.callback}>
@@ -56,48 +55,43 @@ var PopContent = React.createClass({
 							index != btnNumber - 1 && btnContent.push( <View style={styles.btnLine} /> );
 						});
 						return btnContent;
-					}()}
+					})()}
 				</View>
 			</View>
 		);
 	},
 
-});
+};
 
-var Popup = React.createClass({
+exprot default class Popup extends React.Component{
 
-	displayName: 'Popup',
+	static defaultProps = {
+		isOverlay: true,
+		isOverlayClickClose: true,
+	};
 
-	statics: {
-		title: '<Popup />',
-		description: 'react-native-popup',
-	},
+	constructor(props, context) {
 
-	getDefaultProps() {
-		return {
-			isOverlay: true,
-			isOverlayClickClose: true,
-		};
-	},
+		super(props, context);
 
-	getInitialState() {
-		return {
+		this.state = {
 			isVisible: false,
 			isOverlay: this.props.isOverlay,
 			isOverlayClickClose: this.props.isOverlayClickClose,
 			content: null,
 		};
-	},
+
+	}
 
 	_pop(args) {
 		this.setState({
 			content: ( <PopContent {...args}/> ),
 			isVisible: true,
 		});
-	},
+	}
 
 	alert(...text) {
-		var text = text.map((text) => text);
+		let text = text.map((text) => text);
 		this._pop({
 			content: text || '',
 			btns: [{
@@ -107,10 +101,10 @@ var Popup = React.createClass({
 				},
 			}],
 		});
-	},
+	}
 	
 	tip(args) {
-		var {title, content, btn,} = args;
+		let {title, content, btn,} = args;
 		this._pop({
 			title: title || 'Tip',
 			content: content,
@@ -122,10 +116,10 @@ var Popup = React.createClass({
 				},
 			}],
 		});
-	},
+	}
 
 	confirm(args) {
-		var {title, content, ok, cancel,} = args;
+		let {title, content, ok, cancel,} = args;
 		this._pop({
 			title: args.title,
 			content: args.content,
@@ -146,17 +140,17 @@ var Popup = React.createClass({
 				},
 			],
 		});
-	},
+	}
 
 	pop(args) {
 		this._pop(args);
-	},
+	}
 
 	close() {
 		this.setState({
 			isVisible: false,
 		});
-	},
+	}
 
 	_renderOverlay() {
 		if(this.state.isOverlay) {
@@ -170,7 +164,7 @@ var Popup = React.createClass({
 				</TouchableWithoutFeedback>
 			);
 		}
-	},
+	}
 
 	_renderContent() {
 		return (
@@ -178,10 +172,10 @@ var Popup = React.createClass({
 				{this.state.content}
 			</View>
 		);
-	},
+	}
 
 	render() {
-		var { isVisible, isOverlay, } = this.state;
+		let { isVisible, isOverlay, } = this.state;
 		if(isVisible) {
 			return (
 				<View style={styles.popupContainer}>
@@ -190,12 +184,12 @@ var Popup = React.createClass({
 				</View>
 			);
 		}
-		return null;
-	},
+		return <View style={styles.hidden}/>;
+	}
 
-});
+};
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
 	popupContainer: {
 		flex: 1,
 		position: 'absolute',
@@ -284,6 +278,13 @@ var styles = StyleSheet.create({
 		fontSize: 16, 
 		color: '#149be0', 
 	},
+	hidden: {
+		position: 'absolute',
+		height: 0,
+		width: 0,
+		top: 0,
+		left: 0,
+	},
 });
 
 if(Platform.OS === 'ios'){
@@ -302,5 +303,3 @@ if(Platform.OS === 'ios'){
 		},
 	}
 }
-
-module.exports = Popup;

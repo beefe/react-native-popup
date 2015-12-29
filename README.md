@@ -86,9 +86,9 @@ This is a custom component for React Native, a simple popup, compatible with ios
 ####Step 2 - import and use in project
 
 ```javascript
-var Popup = require('react-native-popup');
+import Popup from 'react-native-popup';
 
-var App = React.createClass({
+class App extends React.Component{
 
 	onPressHandle() {
 		// alert
@@ -108,5 +108,5 @@ var App = React.createClass({
 		);
 	},
 	
-});
+};
 ```
