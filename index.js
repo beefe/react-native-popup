@@ -59,11 +59,11 @@ class PopContent extends React.Component{
 				</View>
 			</View>
 		);
-	},
+	}
 
 };
 
-exprot default class Popup extends React.Component{
+export default class Popup extends React.Component{
 
 	static defaultProps = {
 		isOverlay: true,
@@ -91,7 +91,7 @@ exprot default class Popup extends React.Component{
 	}
 
 	alert(...text) {
-		let text = text.map((text) => text);
+		text = text.map((text) => text);
 		this._pop({
 			content: text || '',
 			btns: [{
