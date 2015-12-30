@@ -37,7 +37,7 @@ class PopContent extends React.Component{
 								item && ( tipContent[index] = (<Text style={styles.tipContent} key={'tipContent' + index}>{item}</Text>) );
 							});
 						}else{
-							content && ( tipContent[0] = (<Text style={styles.tipContent}>{content}</Text>) );
+							content && ( tipContent[0] = (<Text style={styles.tipContent} key={'tipContent'}>{content}</Text>) );
 						}
 						return tipContent;
 					})()}
