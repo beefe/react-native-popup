@@ -34,7 +34,7 @@ class PopContent extends React.Component{
 								if(index > 9){ 
 									return;
 								}
-								item && ( tipContent[index] = (<Text style={styles.tipContent}>{item}</Text>) );
+								item && ( tipContent[index] = (<Text style={styles.tipContent} key={'tipContent' + index}>{item}</Text>) );
 							});
 						}else{
 							content && ( tipContent[0] = (<Text style={styles.tipContent}>{content}</Text>) );
@@ -48,7 +48,7 @@ class PopContent extends React.Component{
 						let btnContent = [];
 						btns.forEach((btn, index,) => {
 							btnContent.push(
-								<TouchableOpacity style={styles.btnTextBox} onPress={btn.callback}>
+								<TouchableOpacity style={styles.btnTextBox} onPress={btn.callback} key={'btnTextBox' + index}>
 									<Text style={styles.btnText}>{btn.text}</Text>
 								</TouchableOpacity>
 							);
