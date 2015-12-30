@@ -52,7 +52,7 @@ class PopContent extends React.Component{
 									<Text style={styles.btnText}>{btn.text}</Text>
 								</TouchableOpacity>
 							);
-							index != btnNumber - 1 && btnContent.push( <View style={styles.btnLine} /> );
+							index != btnNumber - 1 && btnContent.push( <View style={styles.btnLine} key={'btnLine' + index} /> );
 						});
 						return btnContent;
 					})()}
