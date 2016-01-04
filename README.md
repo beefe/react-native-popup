@@ -102,7 +102,7 @@ class App extends React.Component{
 				<Text style={styles.btn} onPress={this.onPressHandle}>click me !</Text>
 
 				{/** Popup component */}
-				<Popup ref={(popup) => { this.popup = popup }}>
+				<Popup ref={(popup) => { this.popup = popup }}/>
 
 			</View>
 		);
