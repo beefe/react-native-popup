@@ -63,7 +63,77 @@ class PopContent extends React.Component{
 
 };
 
+class DisplayPopup extends React.Component{
+
+	static defaultProps = {
+		isOverlay: true,
+		isOverlayClickClose: true,
+		btns: [{
+			text: 'ok',
+			callback: () => {},
+		}],
+	};
+
+	constructor(props, context) {
+
+		super(props, context);
+
+		this.state = {
+			isVisible: true,
+		};
+
+	}
+
+	close() {
+		this.setState({
+			isVisible: false,
+		});
+	}
+
+	_renderOverlay() {
+		if(this.props.isOverlay) {
+			return (
+				<TouchableWithoutFeedback onPress={() => {
+					if(this.props.isOverlayClickClose) {
+						this.close();
+					}
+				}}>
+					<View style={styles.overlay}></View>
+				</TouchableWithoutFeedback>
+			);
+		}
+	}
+
+	render() {
+		let { isVisible, isOverlay, } = this.state;
+		let { title, content, btns, } = this.props;
+		btns = btns.map((item) => {
+			return {
+				text: item.text,
+				callback: () => {
+					typeof item.callback === 'function' && item.callback();
+					this.close();
+				},
+			};
+		});
+		if(isVisible) {
+			return (
+				<View style={styles.popupContainer}>
+					{this._renderOverlay()}
+					<View style={styles.tipBoxView}>
+						<PopContent title={title} content={content} btns={btns} />
+					</View>
+				</View>
+			);
+		}
+		return <View style={styles.hidden}/>;
+	}
+
+};
+
 export default class Popup extends React.Component{
+
+	static DisplayPopup = DisplayPopup;
 
 	static defaultProps = {
 		isOverlay: true,
