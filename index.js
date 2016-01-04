@@ -1,6 +1,7 @@
 'use strict';
 
 import React, {
+	Component,
 	StyleSheet,
 	PropTypes,
 	View,
@@ -12,7 +13,7 @@ import React, {
 	Platform,
 } from 'react-native';
 
-class PopContent extends React.Component{
+class PopContent extends Component{
 
 	static propTypes = {
 		title: PropTypes.string,
@@ -63,7 +64,7 @@ class PopContent extends React.Component{
 
 };
 
-class DisplayPopup extends React.Component{
+class DisplayPopup extends Component{
 
 	static defaultProps = {
 		isOverlay: true,
@@ -107,15 +108,13 @@ class DisplayPopup extends React.Component{
 	render() {
 		let { isVisible, isOverlay, } = this.state;
 		let { title, content, btns, } = this.props;
-		btns = btns.map((item) => {
-			return {
-				text: item.text,
-				callback: () => {
-					typeof item.callback === 'function' && item.callback();
-					this.close();
-				},
-			};
-		});
+		btns = btns.map((item) => ({
+			text: item.text,
+			callback: () => {
+				typeof item.callback === 'function' && item.callback();
+				this.close();
+			},
+		}));
 		if(isVisible) {
 			return (
 				<View style={styles.popupContainer}>
@@ -131,7 +130,7 @@ class DisplayPopup extends React.Component{
 
 };
 
-export default class Popup extends React.Component{
+export default class Popup extends Component{
 
 	static DisplayPopup = DisplayPopup;
 
