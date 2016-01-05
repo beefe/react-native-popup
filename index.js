@@ -265,6 +265,8 @@ let styles = StyleSheet.create({
 		position: 'absolute',
 		top: 0,
 		left: 0,
+		justifyContent: 'center',
+		alignItems: 'center',
 		width: Dimensions.get('window').width,
 		height: Dimensions.get('window').height,
 		overflow: 'hidden',
