@@ -1,11 +1,11 @@
 'use strict';
  
-import React, { 
-	StyleSheet, 
-	PropTypes, 
-	View, 
-	Text, 
-	TouchableOpacity, 
+import React, {
+	StyleSheet,
+	PropTypes,
+	View,
+	Text,
+	TouchableOpacity,
 	Dimensions,
 	TouchableWithoutFeedback,
 	PixelRatio,
@@ -172,7 +172,7 @@ export default class Popup extends React.Component{
 			}],
 		});
 	}
-	
+
 	tip(args) {
 		let {title, content, btn,} = args;
 		this._pop({
@@ -265,65 +265,64 @@ let styles = StyleSheet.create({
 		position: 'absolute',
 		top: 0,
 		left: 0,
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').height,
+		overflow: 'hidden',
+		backgroundColor: 'rgba(00, 00, 00, 0)',
+	},
+	overlay: {
+		flex: 1,
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: Dimensions.get('window').width,
+		height: Dimensions.get('window').height,
+		backgroundColor: '#000',
+		opacity: .5,
+	},
+	tipBoxView: {
+		backgroundColor: '#fff',
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: Dimensions.get('window').width, 
-		height: Dimensions.get('window').height, 
+		width: Dimensions.get('window').width - 50,
+		borderRadius: 12,
 		overflow: 'hidden',
 	},
-	overlay: { 
-		flex: 1, 
-		position: 'absolute', 
-		top: 0, 
-		left: 0, 
-		width: Dimensions.get('window').width, 
-		height: Dimensions.get('window').height, 
-		backgroundColor: '#000', 
-		opacity: .5, 
-	},
-	tipBoxView: { 
-		backgroundColor: '#fff', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
-		width: Dimensions.get('window').width - 50, 
-		borderRadius: 12, 
-		overflow: 'hidden',
-	},
-	tipBox: { 
-		flex: 1, 
-		paddingTop: 15, 
-		flexDirection: 'column', 
-		justifyContent: 'center', 
-		alignItems: 'center', 
+	tipBox: {
+		flex: 1,
+		paddingTop: 15,
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	tipTitleBox: {
-		height: 30, 
-		width: Dimensions.get('window').width - 50, 
-		justifyContent: 'center', 
-		alignItems: 'center', 
+		height: 30,
+		width: Dimensions.get('window').width - 50,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
-	tipTitle: { 
-		fontSize: 19, 
-		fontWeight: '500', 
-		textAlign: 'center', 
+	tipTitle: {
+		fontSize: 19,
+		fontWeight: '500',
+		textAlign: 'center',
 	},
 	tipContentBox: {
-		flex: 1, 
-		flexDirection: 'column', 
-		marginBottom: 15, 
+		flex: 1,
+		flexDirection: 'column',
+		marginBottom: 15,
 		marginTop: 10,
-		justifyContent: 'center', 
-		alignItems: 'center', 
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
-	tipContent: { 
-		fontSize: 16, 
-		marginBottom: 5, 
-		textAlign: 'center', 
+	tipContent: {
+		fontSize: 16,
+		marginBottom: 5,
+		textAlign: 'center',
 	},
-	line: { 
-		height: 1 / PixelRatio.get(), 
-		width: Dimensions.get('window').width - 50, 
-		backgroundColor: '#ddd', 
+	line: {
+		height: 1 / PixelRatio.get(),
+		width: Dimensions.get('window').width - 50,
+		backgroundColor: '#ddd',
 	},
 	btnBox: {
 		width: Dimensions.get('window').width - 50,
@@ -343,10 +342,10 @@ let styles = StyleSheet.create({
 		width: 1 / PixelRatio.get(),
 		backgroundColor: '#ddd',
 	},
-	btnText: { 
-		textAlign: 'center', 
-		fontSize: 16, 
-		color: '#149be0', 
+	btnText: {
+		textAlign: 'center',
+		fontSize: 16,
+		color: '#149be0',
 	},
 	hidden: {
 		position: 'absolute',
@@ -360,16 +359,16 @@ let styles = StyleSheet.create({
 if(Platform.OS === 'ios'){
 	styles = {
 		...styles,
-		tipTitle: { 
-			fontSize: 20, 
-			fontWeight: '500', 
-			textAlign: 'center', 
+		tipTitle: {
+			fontSize: 20,
+			fontWeight: '500',
+			textAlign: 'center',
 		},
-		tipContent: { 
-			fontSize: 16, 
+		tipContent: {
+			fontSize: 16,
 			marginTop: 3,
-			marginBottom: 7, 
-			textAlign: 'center', 
+			marginBottom: 7,
+			textAlign: 'center',
 		},
 	}
 }
