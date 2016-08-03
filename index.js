@@ -1,8 +1,8 @@
 'use strict';
 
 import React, {
- PropTypes,
- Component,
+	PropTypes,
+	Component
 } from 'react';
 
 import {

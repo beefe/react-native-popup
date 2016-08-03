@@ -77,21 +77,33 @@ This is a custom component for React Native, a simple popup, compatible with ios
 ```
 
 ###Usage
-####Step 1 - install
+
+#### add in package.json
+
+```json
+...
+"dependencies": {
+    ...
+    "react-native-popup": "beefe/react-native-popup",
+    ...
+  }
+...
+```
+
+#### install
 
 ```
-	npm install react-native-popup --save
+	npm install react-native-popup
 ```
 
-####Step 2 - import and use in project
+#### import and use
 
 ```javascript
 import Popup from 'react-native-popup';
 
-class App extends React.Component{
+class App extends Component{
 
 	onPressHandle() {
-		// alert
 		this.popup.alert(1);
 	},
 
@@ -99,7 +111,7 @@ class App extends React.Component{
 		return (
 			<View style={styles.container}>
 
-				<Text style={styles.btn} onPress={this.onPressHandle}>click me !</Text>
+				<Text style={styles.btn} onPress={this.onPressHandle.bind(this)}>click me !</Text>
 
 				{/** Popup component */}
 				<Popup ref={(popup) => { this.popup = popup }}/>
