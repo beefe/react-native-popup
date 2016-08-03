@@ -1,8 +1,12 @@
 'use strict';
- 
+
 import React, {
-	StyleSheet,
 	PropTypes,
+	Component
+} from 'react';
+
+import {
+	StyleSheet,
 	View,
 	Text,
 	TouchableOpacity,
@@ -12,7 +16,7 @@ import React, {
 	Platform,
 } from 'react-native';
 
-class PopContent extends React.Component{
+class PopContent extends Component{
 
 	static propTypes = {
 		title: PropTypes.string,
@@ -31,7 +35,7 @@ class PopContent extends React.Component{
 						let tipContent = [];
 						if(content instanceof Array){
 							content.forEach((item, index, arr) => {
-								if(index > 9){ 
+								if(index > 9){
 									return;
 								}
 								item && ( tipContent[index] = (<Text style={styles.tipContent} key={'tipContent' + index}>{item}</Text>) );
@@ -63,7 +67,7 @@ class PopContent extends React.Component{
 
 };
 
-class DisplayPopup extends React.Component{
+class DisplayPopup extends Component{
 
 	static defaultProps = {
 		isOverlay: true,
@@ -131,7 +135,7 @@ class DisplayPopup extends React.Component{
 
 };
 
-export default class Popup extends React.Component{
+export default class Popup extends Component{
 
 	static DisplayPopup = DisplayPopup;
 
