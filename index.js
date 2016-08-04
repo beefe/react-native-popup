@@ -18,6 +18,10 @@ import {
 
 class PopContent extends Component{
 
+  constructor(props, context) {
+		super(props, context);
+	}
+
 	static propTypes = {
 		title: PropTypes.string,
 		content: PropTypes.oneOfType([ PropTypes.string, PropTypes.number, PropTypes.array, ]),
