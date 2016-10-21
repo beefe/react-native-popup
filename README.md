@@ -1,5 +1,5 @@
 # react-native-popup  
-[![npm version](https://img.shields.io/npm/v/react-native-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-native-picker)  
+[![npm version](https://img.shields.io/npm/v/react-native-popup.svg?style=flat-square)](https://www.npmjs.com/package/react-native-popup)  
 
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
