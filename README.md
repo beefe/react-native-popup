@@ -1,9 +1,10 @@
-# react-native-popup
+# react-native-popup  
+[![npm version](https://img.shields.io/npm/v/react-native-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-native-picker)  
 
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
 ###Demo
-![ui](./ui.gif)
+![ui](./doc/ui.gif)
 
 ###Props
 - <b>isOverlay</b> *bool* - *`default true`*
@@ -35,6 +36,9 @@ This is a custom component for React Native, a simple popup, compatible with ios
 			content: ['come on!', 'go!'],
 			btn: {
 				text: 'OKOK',
+				style: {
+					color: 'red'
+				},
 				callback: () => {
 					this.popup.alert('over!');
 				},
@@ -63,12 +67,18 @@ This is a custom component for React Native, a simple popup, compatible with ios
 			content: ['come on!', 'go!'],
 			ok: {
 				text: 'Y',
+				style: {
+					color: 'red'
+				},
 				callback: () => {
 					this.popup.alert('Good!');
 				},
 			},
 			cancel: {
 				text: 'N',
+				style: {
+					color: 'blue'
+				},
 				callback: () => {
 					this.popup.alert('Hurry up！');
 				},
@@ -99,10 +109,11 @@ class App extends React.Component{
 		return (
 			<View style={styles.container}>
 
-				<Text style={styles.btn} onPress={this.onPressHandle}>click me !</Text>
+				<Text style={styles.btn} onPress={this.onPressHandle.bind(this)}>click me !</Text>
 
 				{/** Popup component */}
-				<Popup ref={(popup) => { this.popup = popup }}/>
+				<Popup ref={popup => this.popup = popup }/>
+				{/** or <Popup ref={popup => this.popup = popup } isOverlay={false} isOverlayClickClose={false}/> */}
 
 			</View>
 		);

@@ -1,8 +1,14 @@
-'use strict';
-import React from 'react'
+/**
+ * Popup main
+ */
+
+import React, {
+	Component,
+	PropTypes
+} from 'react';
+
 import {
 	StyleSheet,
-	PropTypes,
 	View,
 	Text,
 	TouchableOpacity,
@@ -12,13 +18,17 @@ import {
 	Platform,
 } from 'react-native';
 
-class PopContent extends React.Component{
+class PopContent extends Component{
 
 	static propTypes = {
 		title: PropTypes.string,
 		content: PropTypes.oneOfType([ PropTypes.string, PropTypes.number, PropTypes.array, ]),
 		btns: PropTypes.array,
 	};
+
+	constructor(props, context) {
+		super(props, context);
+	}
 
 	render() {
 		let {title, content, btns} = this.props;
@@ -49,7 +59,7 @@ class PopContent extends React.Component{
 						btns.forEach((btn, index,) => {
 							btnContent.push(
 								<TouchableOpacity style={styles.btnTextBox} onPress={btn.callback} key={'btnTextBox' + index}>
-									<Text style={styles.btnText}>{btn.text}</Text>
+									<Text style={[styles.btnText, btn.style]}>{btn.text}</Text>
 								</TouchableOpacity>
 							);
 							index != btnNumber - 1 && btnContent.push( <View style={styles.btnLine} key={'btnLine' + index} /> );
@@ -63,7 +73,7 @@ class PopContent extends React.Component{
 
 };
 
-class DisplayPopup extends React.Component{
+class DisplayPopup extends Component{
 
 	static defaultProps = {
 		isOverlay: true,
@@ -131,7 +141,7 @@ class DisplayPopup extends React.Component{
 
 };
 
-export default class Popup extends React.Component{
+export default class Popup extends Component{
 
 	static DisplayPopup = DisplayPopup;
 
@@ -161,7 +171,7 @@ export default class Popup extends React.Component{
 	}
 
 	alert(...text) {
-		text = text.map((text) => text);
+		text = text.map(text => text);
 		this._pop({
 			content: text || '',
 			btns: [{
@@ -180,6 +190,7 @@ export default class Popup extends React.Component{
 			content: content,
 			btns: [{
 				text: btn && btn.text || 'OK',
+				style: btn && btn.style,
 				callback: () => {
 					this.close();
 					btn && typeof btn.callback === 'function' && btn.callback();
@@ -196,6 +207,7 @@ export default class Popup extends React.Component{
 			btns: [
 				{
 					text: cancel && cancel.text || 'Cancel',
+					style: cancel && cancel.style,
 					callback: () => {
 						this.close();
 						cancel && typeof cancel.callback === 'function' && cancel.callback();
@@ -203,6 +215,7 @@ export default class Popup extends React.Component{
 				},
 				{
 					text: ok && ok.text || 'OK',
+					style: ok && ok.style,
 					callback: () => {
 						this.close();
 						ok && typeof ok.callback === 'function' && ok.callback();
@@ -259,6 +272,10 @@ export default class Popup extends React.Component{
 
 };
 
+let screen = {
+	pixel: 1 / PixelRatio.get(),
+	...Dimensions.get('window')
+};
 let styles = StyleSheet.create({
 	popupContainer: {
 		flex: 1,
@@ -267,8 +284,8 @@ let styles = StyleSheet.create({
 		left: 0,
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: Dimensions.get('window').width,
-		height: Dimensions.get('window').height,
+		width: screen.width,
+		height: screen.height,
 		overflow: 'hidden',
 		backgroundColor: 'rgba(00, 00, 00, 0)',
 	},
@@ -277,8 +294,8 @@ let styles = StyleSheet.create({
 		position: 'absolute',
 		top: 0,
 		left: 0,
-		width: Dimensions.get('window').width,
-		height: Dimensions.get('window').height,
+		width: screen.width,
+		height: screen.height,
 		backgroundColor: '#000',
 		opacity: .5,
 	},
@@ -286,7 +303,7 @@ let styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: Dimensions.get('window').width - 50,
+		width: screen.width - 50,
 		borderRadius: 12,
 		overflow: 'hidden',
 	},
@@ -299,7 +316,7 @@ let styles = StyleSheet.create({
 	},
 	tipTitleBox: {
 		height: 30,
-		width: Dimensions.get('window').width - 50,
+		width: screen.width - 50,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -322,12 +339,12 @@ let styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	line: {
-		height: 1 / PixelRatio.get(),
-		width: Dimensions.get('window').width - 50,
+		height: screen.pixel,
+		width: screen.width - 50,
 		backgroundColor: '#ddd',
 	},
 	btnBox: {
-		width: Dimensions.get('window').width - 50,
+		width: screen.width - 50,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -341,7 +358,7 @@ let styles = StyleSheet.create({
 	},
 	btnLine: {
 		height: 50,
-		width: 1 / PixelRatio.get(),
+		width: screen.pixel,
 		backgroundColor: '#ddd',
 	},
 	btnText: {
