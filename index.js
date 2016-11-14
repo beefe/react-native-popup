@@ -278,7 +278,6 @@ let screen = {
 };
 let styles = StyleSheet.create({
 	popupContainer: {
-		flex: 1,
 		position: 'absolute',
 		top: 0,
 		left: 0,
@@ -290,7 +289,6 @@ let styles = StyleSheet.create({
 		backgroundColor: 'rgba(00, 00, 00, 0)',
 	},
 	overlay: {
-		flex: 1,
 		position: 'absolute',
 		top: 0,
 		left: 0,
@@ -308,7 +306,6 @@ let styles = StyleSheet.create({
 		overflow: 'hidden',
 	},
 	tipBox: {
-		flex: 1,
 		paddingTop: 15,
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -326,7 +323,6 @@ let styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	tipContentBox: {
-		flex: 1,
 		flexDirection: 'column',
 		marginBottom: 15,
 		marginTop: 10,
@@ -351,7 +347,7 @@ let styles = StyleSheet.create({
 		height: 50,
 	},
 	btnTextBox: {
-		flex: 1,
+		flexGrow: 1,
 		height: 50,
 		justifyContent: 'center',
 		alignItems: 'center',
