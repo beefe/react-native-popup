@@ -3,14 +3,14 @@
 
 This is a custom component for React Native, a simple popup, compatible with ios and android.
 
-###Demo
+### Demo
 ![ui](./doc/ui.gif)
 
-###Props
+### Props
 - <b>isOverlay</b> *bool* - *`default true`*
 - <b>isOverlayClickClose</b> *bool* - *`default true`*
 
-###~~*`static`*~~ Methods
+### ~~*`static`*~~ Methods
 - <b>alert</b>(<b>`message`</b>: *string*|*number*, [...]) 
 ```javascript
 	e.g.
@@ -86,14 +86,14 @@ This is a custom component for React Native, a simple popup, compatible with ios
 		});
 ```
 
-###Usage
-####Step 1 - install
+### Usage
+#### Step 1 - install
 
 ```
 	npm install react-native-popup --save
 ```
 
-####Step 2 - import and use in project
+#### Step 2 - import and use in project
 
 ```javascript
 import Popup from 'react-native-popup';
