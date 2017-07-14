@@ -326,6 +326,8 @@ let styles = StyleSheet.create({
 		flexDirection: 'column',
 		marginBottom: 15,
 		marginTop: 10,
+		marginLeft: 10,
+		marginRight: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
