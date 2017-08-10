@@ -383,6 +383,7 @@ if(Platform.OS === 'ios'){
 			fontSize: 16,
 			marginTop: 3,
 			marginBottom: 7,
+			paddingHorizontal: 13,
 			textAlign: 'center',
 		},
 	}
