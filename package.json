@@ -1,6 +1,6 @@
 {
   "name": "react-native-popup",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "popup for react-native",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/beefe/react-native-popup/issues"
   },
-  "homepage": "https://github.com/beefe/react-native-popup#readme"
+  "homepage": "https://github.com/beefe/react-native-popup#readme",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
 }
