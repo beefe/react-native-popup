@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/beefe/react-native-popup/issues"
   },
-  "homepage": "https://github.com/beefe/react-native-popup#readme"
+  "homepage": "https://github.com/beefe/react-native-popup#readme",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  }
 }
