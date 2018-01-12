@@ -332,6 +332,7 @@ let styles = StyleSheet.create({
 	tipContent: {
 		fontSize: 16,
 		marginBottom: 5,
+		paddingHorizontal: 13,
 		textAlign: 'center',
 	},
 	line: {
