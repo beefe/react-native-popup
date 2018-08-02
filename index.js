@@ -3,9 +3,9 @@
  */
 
 import React, {
-	Component,
-	PropTypes
+	Component
 } from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	StyleSheet,
@@ -332,6 +332,7 @@ let styles = StyleSheet.create({
 	tipContent: {
 		fontSize: 16,
 		marginBottom: 5,
+		paddingHorizontal: 13,
 		textAlign: 'center',
 	},
 	line: {
@@ -383,6 +384,7 @@ if(Platform.OS === 'ios'){
 			fontSize: 16,
 			marginTop: 3,
 			marginBottom: 7,
+			paddingHorizontal: 13,
 			textAlign: 'center',
 		},
 	}
